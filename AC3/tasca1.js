@@ -8,16 +8,16 @@ function renderApp() {
         const [lastName, setLastName] = React.useState(0);
 
         function handleFirstNameChange(e) {
-            setfirstName = e.target.value;
+            setfirstName(e.target.value);
         }
 
         function handleLastNameChange(e) {
-            setLastName = e.target.value;
+            setLastName(e.target.value);
         }
 
         function handleReset() {
-            setfirstName = '';
-            setLastName = '';
+            setfirstName('');
+            setLastName('');
         }
 
         return (

@@ -18,32 +18,20 @@ function renderApp() {
   }];
 
   function ShoppingCart() {
-    const [
-      products,
-      setProducts
-    ] = React.useState(initialProducts)
+    const [products, setProducts] = React.useState(initialProducts)
 
     function handleIncreaseClick(productId) {
       setProducts(products.map(product => {
-      if (product.id === productId) {
-        return { ...product, count: product.count + 1 };
-      }
-      return product;
-    }));
-
-    function handleDecreaseClick(productId) {
-    let nextProducts = products.map(product => {
-      if (product.id === productId) {
-        return { ...product, count: product.count - 1 };
-      }
-      return product;
-    });
-
-    nextProducts = nextProducts.filter(p => p.count > 0);
-
-    setProducts(nextProducts);
-  }
-  }
+        if (product.id === productId) {
+          return {
+            ...product,
+            count: product.count + 1
+          };
+        } else {
+          return product;
+        }
+      }))
+    }
 
     return (
       <ul>
@@ -52,7 +40,7 @@ function renderApp() {
             {product.name}
             {' '}
             (<b>{product.count}</b>)
-            <button onClick={() => {
+            <button onClick={(e) => {
               handleIncreaseClick(product.id);
             }}>
               +

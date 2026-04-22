@@ -18,29 +18,26 @@ function renderApp() {
     function handleAddTodo(title) {
       setTodos([
         ...todos,
-        {
-          id: nextId++,
-          title: title,
-          done: false
-        }
+        { id: nextId, title: title, done: false }
       ]);
+      nextId++;
     }
 
     function handleChangeTodo(nextTodo) {
-    setTodos(todos.map(t => {
-      if (t.id === nextTodo.id) {
-        return nextTodo;
-      } else {
-        return t; 
-      }
-    }));
-  }
+      setTodos(todos.map(t => {
+        if (t.id === nextTodo.id) {
+          return nextTodo;
+        } else {
+          return t;
+        }
+      }));
+    }
 
-  function handleDeleteTodo(todoId) {
-    setTodos(
-      todos.filter(t => t.id !== todoId)
-    );
-  }
+    function handleDeleteTodo(todoId) {
+      setTodos([
+        ...todos.filter(todo => todo.id != todoId)
+      ])
+    }
 
     return (
       <>
@@ -92,7 +89,7 @@ function renderApp() {
       </ul>
     );
   }
-  
+
   function Task({ todo, onChange, onDelete }) {
     const [isEditing, setIsEditing] = React.useState(false);
     let todoContent;

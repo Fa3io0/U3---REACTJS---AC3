@@ -7,7 +7,7 @@ function renderApp() {
     const [walk, setWalk] = React.useState(true);
 
     function handleClick() {
-    // //   alert(`${walk? 'Stop' : 'Walk'} is next`);
+      // alert(`${walk? 'Stop' : 'Walk'} is next`);
       // alert(walk);
       // walk = true
       setWalk(!walk); // next-walk = false
